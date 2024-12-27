@@ -1,0 +1,180 @@
+@import 'animations.css';
+
+@font-face {
+  font-family: 'Quantum';
+  src: url('/assets/fonts/quantfh.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Quantum", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(165, 165, 165);
+  overflow: hidden;
+}
+
+body {
+  box-sizing: border-box;
+  position: fixed;
+}
+
+#canvas {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101%;
+  height: 101%;
+  z-index: 0;
+}
+
+#content {
+  position: absolute;
+}
+
+@media (min-width: 769px) {
+  #content {
+    text-align: left;
+    top: 5%;
+    right: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  #content {
+    text-align: center;
+    top: 5%;
+    padding: 10px;
+  }
+}
+
+#name {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px rgba(32, 0, 146, 0.8);
+  animation: fadeInMoveFromLeft 2s cubic-bezier(0.3, 0.7, 0.4, 1) forwards;
+}
+
+#job {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  #name {
+    animation: fadeIn 2s ease-in forwards;
+  }
+
+  #job {
+    text-align: center;
+  }
+
+  #job span:nth-of-type(1) {
+    animation: fadeIn 3s ease-in forwards;
+  }
+  
+  #job span:nth-of-type(2) {
+    animation: fadeIn 4s ease-in forwards;
+  }
+}
+
+/* Slideshow container */
+#slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  margin-top: 15vh;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+@media (min-width: 768px) {
+  #slideshow-container {
+    display: none;
+  }
+}
+
+.mySlides {
+  display: none;
+  animation: fadeIn 1s ease-in forwards;
+}
+
+/* Next & previous buttons */
+#prev, #next {
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+#next {
+  right: 3%;
+  border-radius: 3px 0 0 3px;
+}
+
+#prev {
+  left: 3%;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+#prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+#slides {
+  padding-top: 6px;
+  color: #f2f2f2;
+  font-size: 15px;
+  position: absolute;
+  width: fit-content;
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, 0);
+  justify-content: center;
+  align-items: center;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+.info {
+  text-align: center;
+  padding: 0 30px 0 30px;
+}
+
+#about-me, #work, #contacts {
+  display: none;
+}
+
+#descriptions-container {
+  position: relative;
+  margin: auto;
+  margin-top: 12vh;
+  animation: fadeIn 2s ease-in forwards;
+}
+
+#work-company {
+  font-size: 12px;
+}
+
+/* Reset button style to make it transparent */
+button.transparent-button {
+  all: unset; /* Resets all styles to inherit or default */
+  display: inline-block;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+}

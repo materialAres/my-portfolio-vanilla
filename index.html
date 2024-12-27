@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Massimiliano Aresu</title>
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;1,200&family=Kumar+One&display=swap" rel="stylesheet">
+</head>
+
+<body id="portfolio">
+	<canvas id="canvas"></canvas>
+	<div id="content">
+		<div id="main-text">
+			<h1 id="name">Massimiliano Aresu</h1>
+			<h3 id="job"><span>Web</span> <span>Developer</span></h3>
+		</div>
+
+		<div id="slideshow-container">
+			<div id="slides">
+			<div class="mySlides fade">
+				<button class="text transparent-button" onclick="goToDescription(0, event)">About me</button>
+			</div>
+			
+			<div class="mySlides fade">
+				<button id="work-text" class="text transparent-button" onclick="goToDescription(1, event)">Work</button>
+			</div>
+			
+			<div class="mySlides fade">
+				<button class="text transparent-button" onclick="goToDescription(2, event)">Contacts</button>
+			</div>
+		</div>
+			
+			<!-- Next and previous buttons -->
+			<button id="prev" class="prev transparent-button" onclick="plusSlides(-1)">&#10094;</button>
+			<button id="next" class="next transparent-button" onclick="plusSlides(1)">&#10095;</button>
+		</div>
+
+		<div id="descriptions-container">
+			<div id="about-me" class="info">
+				<p>
+					Born in 1992, always passionate about computer and technology. I discovered programming quite recently, and decided to dive deep in this world.
+				</p>
+
+				<button id="back" class="transparent-button" onclick="goBack(0, event)">&#10094;</button>
+			</div>
+
+			<div id="work" class="info">
+				<div id="first-experience">
+					<p>2023/2024 <br> Full-stack Developer <br> <span id="work-company">Clariter Italia</span></p>
+				</div>
+				<div>
+					<p>2024/on going... <br> Front-end Developer <br> <span id="work-company">Ernst & Young</span></p>
+				</div>
+
+				<button id="back" class="transparent-button" onclick="goBack(1, event)">&#10094;</button>
+			</div>
+
+			<div id="contacts" class="info">
+				<p>Email: macs.ars@hotmail.com</p>
+				<p>Phone: +39 351 928 5434</p>
+				
+				<button id="back" class="transparent-button" onclick="goBack(2, event)">&#10094;</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="/js/main.js"></script>
+	<script src="/js/animatedBackground.js"></script>
+</body>
+
+</html>
