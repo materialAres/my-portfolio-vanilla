@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'Quantum';
-  src: url('/assets/fonts/quantfh.ttf') format('truetype');
+  src: url('/assets/fonts/Quantumregular-MVmXr.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,13 +15,24 @@ html, body {
   font-family: "Quantum", serif;
   font-weight: 400;
   font-style: normal;
-  color: rgb(165, 165, 165);
-  overflow: hidden;
+  color: #40E7D1;
+  overflow-x: hidden;
 }
 
 body {
   box-sizing: border-box;
-  position: fixed;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Reset button style to make it transparent */
+button.transparent-button {
+  all: unset; /* Resets all styles to inherit or default */
+  display: inline-block;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
 }
 
 #canvas {
@@ -35,33 +46,82 @@ body {
 }
 
 #content {
-  position: absolute;
+  position: relative;
 }
 
 @media (min-width: 769px) {
-  #content {
-    text-align: left;
+  #main-text {
+    position: fixed;
     top: 5%;
     right: 5%;
+  }
+
+  #slideshow-container {
+    position: fixed;
+    top: 40vh;
+    left: 2%;
+    margin: auto;
+    animation: fadeIn 2s ease-in forwards;
+  }
+
+  #about-me {
+    position: fixed;
+    top: 30vh;
+    left: 40vw;
+    width: 30vw;
+  }
+
+  #work {
+    position: fixed;
+    top: 35vh;
+    left: 40vw;
+  }
+
+  #contacts {
+    position: fixed;
+    top: 42vh;
+    left: 40vw;
   }
 }
 
 @media (max-width: 768px) {
-  #content {
+  #main-text {
+    position: relative;
     text-align: center;
     top: 5%;
     padding: 10px;
+  }
+
+  #slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: 15vh auto 0;
+    animation: fadeIn 2s ease-in forwards;
+  }
+
+  #descriptions-container {
+    position: relative;
+    margin: 12vh auto 0;
+    animation: fadeIn 2s ease-in forwards;
   }
 }
 
 #name {
   font-size: 2.5rem;
-  text-shadow: 0 0 10px rgba(32, 0, 146, 0.8);
+  background: linear-gradient(45deg, #40E7D1, #2bc4af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(64, 231, 209, 0.3);
   animation: fadeInMoveFromLeft 2s cubic-bezier(0.3, 0.7, 0.4, 1) forwards;
 }
 
 #job {
   text-align: right;
+  background: linear-gradient(45deg, #40E7D1, #2bc4af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @media (max-width: 768px) {
@@ -82,99 +142,240 @@ body {
   }
 }
 
-/* Slideshow container */
-#slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  margin-top: 15vh;
-  animation: fadeIn 2s ease-in forwards;
-}
+/* Slideshow container Desktop */
+@media (min-width: 769px) {
+  .mySlides {
+    display: block;
+    animation: fadeIn 1s ease-in forwards;
+  }
 
-@media (min-width: 768px) {
-  #slideshow-container {
+  #next, #prev {
+    display: none;
+  }
+
+  #slides {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    animation: fadeIn 1s ease-in forwards;
+  }
+
+  /* Descriptions section */
+  #about-me, #work, #contacts {
+    display: none;
+  }
+
+  #work {
+    position: absolute;
+    top: 35vh;
+    left: 40vw;
+  }
+
+  #contacts {
+    position: absolute;
+    top: 42vh;
+    left: 40vw;
+  }
+  
+  #descriptions-container {
+    animation: fadeIn 2s ease-in forwards;
+    width: 40vw;
+  }
+
+  .back-button {
     display: none;
   }
 }
 
-.mySlides {
-  display: none;
-  animation: fadeIn 1s ease-in forwards;
+@media (max-width: 768px) {
+  .mySlides {
+    display: none;
+    animation: fadeIn 1s ease-in forwards;
+  }
+  
+  /* Next & previous buttons */
+  #prev, #next {
+    cursor: pointer;
+    position: absolute;
+    width: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    top: 10px;
+  }
+  
+  /* Position the "next button" to the right */
+  #next {
+    right: 3%;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  #prev {
+    left: 3%;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  #prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  
+  /* Caption text */
+  #slides {
+    padding-top: 6px;
+    color: #f2f2f2;
+    font-size: 25px;
+    position: absolute;
+    width: fit-content;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, 0);
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+  
+  .info {
+    text-align: center;
+    padding: 0 30px 0 30px;
+  }
+  
+  #about-me, #work, #contacts {
+    display: none;
+  }
+  
+  #work-company {
+    font-size: 12px;
+  }
 }
 
-/* Next & previous buttons */
-#prev, #next {
-  cursor: pointer;
-  position: absolute;
-  width: auto;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
-
-/* Position the "next button" to the right */
-#next {
-  right: 3%;
-  border-radius: 3px 0 0 3px;
-}
-
-#prev {
-  left: 3%;
-  border-radius: 3px 0 0 3px;
-}
-
-/* On hover, add a black background color with a little bit see-through */
-#prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-#slides {
-  padding-top: 6px;
-  color: #f2f2f2;
-  font-size: 15px;
-  position: absolute;
-  width: fit-content;
-  text-align: center;
-  left: 50%;
-  transform: translate(-50%, 0);
-  justify-content: center;
-  align-items: center;
-}
-
-.active, .dot:hover {
-  background-color: #717171;
+.mySlides button {
+  background: linear-gradient(45deg, #40E7D1, #2bc4af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.5rem;
 }
 
 .info {
-  text-align: center;
-  padding: 0 30px 0 30px;
-}
-
-#about-me, #work, #contacts {
-  display: none;
-}
-
-#descriptions-container {
+  color: #40E7D1;
+  font-size: 1.2rem;
   position: relative;
-  margin: auto;
-  margin-top: 12vh;
-  animation: fadeIn 2s ease-in forwards;
+  padding-bottom: 55px; /* Add space for the centered button */
+  text-align: center;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-#work-company {
-  font-size: 12px;
+.back-button {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0 auto;
 }
 
-/* Reset button style to make it transparent */
-button.transparent-button {
-  all: unset; /* Resets all styles to inherit or default */
-  display: inline-block;
-  cursor: pointer;
-  color: inherit;
-  font-size: inherit;
-  font-family: inherit;
+.circle-x {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #40E7D1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  box-shadow: 
+    0 0 10px rgba(64, 231, 209, 0.3),
+    0 0 20px rgba(64, 231, 209, 0.2),
+    inset 0 0 8px rgba(64, 231, 209, 0.2);
+  animation: borderPulse 2s infinite;
+}
+
+.circle-x::before,
+.circle-x::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: linear-gradient(45deg, #40E7D1, #2bc4af);
+  transition: all 0.4s ease;
+  box-shadow: 0 0 8px rgba(64, 231, 209, 0.6);
+}
+
+.circle-x::before {
+  transform: rotate(45deg);
+}
+
+.circle-x::after {
+  transform: rotate(-45deg);
+}
+
+.circle-x:hover {
+  transform: rotate(180deg);
+  border-color: #2bc4af;
+  box-shadow: 
+    0 0 20px rgba(64, 231, 209, 0.5),
+    0 0 40px rgba(64, 231, 209, 0.3),
+    inset 0 0 15px rgba(64, 231, 209, 0.4);
+  animation: borderPulse 2s infinite;
+}
+
+.circle-x:hover::before {
+  transform: rotate(225deg) scale(1.2);
+}
+
+.circle-x:hover::after {
+  transform: rotate(135deg) scale(1.2);
+}
+
+/* Add a pulsing effect to the border */
+@keyframes borderPulse {
+  0% {
+    box-shadow: 
+      0 0 10px rgba(64, 231, 209, 0.3),
+      0 0 20px rgba(64, 231, 209, 0.2),
+      inset 0 0 8px rgba(64, 231, 209, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 15px rgba(83, 249, 227, 0.4),
+      0 0 30px rgba(76, 248, 225, 0.3),
+      inset 0 0 12px rgba(64, 231, 209, 0.3);
+  }
+  100% {
+    box-shadow: 
+      0 0 10px rgba(64, 231, 209, 0.3),
+      0 0 20px rgba(64, 231, 209, 0.2),
+      inset 0 0 8px rgba(64, 231, 209, 0.2);
+  }
+}
+
+@media (min-width: 769px) {
+  .info {
+    width: 30vw; /* Match the width specified for #about-me */
+    margin: 0;
+  }
+  
+  .back-button {
+    opacity: 0.7;
+  }
+  
+  .back-button:hover {
+    opacity: 1;
+  }
 }
