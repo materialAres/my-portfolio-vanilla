@@ -60,7 +60,8 @@ Particle.prototype = {
 			if (this.changedFrame > this.maxChangedFrames) {
 				this.reset();
 			}
-		} else if (this.distance(point.x, point.y) < 50) {
+		// Change the radius of the circle where the particles collide to make it smaller or larger
+		} else if (this.distance(point.x, point.y) < 10) {
 			this.changed = true; // Trigger the "explosion" state
 		} else {
 			let dx = point.x - this.x;
