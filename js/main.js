@@ -10,7 +10,7 @@ function handleResize() {
   const contacts = document.getElementById('contacts');
 
   // Reset all displays first
-  if (slideshowContainer) slideshowContainer.style.display = "block";
+  if (slideshowContainer) slideshowContainer.style.display = "flex";
   if (aboutMe) aboutMe.style.display = "none";
   if (work) work.style.display = "none";
   if (contacts) contacts.style.display = "none";
@@ -21,8 +21,8 @@ function handleResize() {
   } else {
     // For desktop, show all slides
     const slides = document.getElementsByClassName("mySlides");
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "block";
+    for (const element of slides) {
+      element.style.display = "block";
     }
   }
 }
@@ -35,12 +35,14 @@ handleResize();
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  slideIndex += n;
+  showSlides(slideIndex);
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  slideIndex = n;
+  showSlides(slideIndex);
 }
 
 function showSlides(n) {
@@ -57,12 +59,27 @@ function showSlides(n) {
 
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
+    // Remove any active class if you're using one
+    slides[i].classList.remove("active-slide");
   }
+  
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  
+  // For mobile, we need to use flex-compatible display property
+  if (window.innerWidth <= 768) {
+    slides[slideIndex-1].style.display = "flex"; // Use flex instead of block
+  } else {
+    slides[slideIndex-1].style.display = "block";
+  }
+  
+  // Add active class for styling purposes
+  slides[slideIndex-1].classList.add("active-slide");
+  
+  if (dots.length > 0) {
+    dots[slideIndex-1].className += " active";
+  }
 }
 /* Slide end */
 
@@ -128,7 +145,7 @@ function goBack(descriptionNumber, event) {
   // Hide the slideshow container
   const container = document.getElementById('slideshow-container');
   if (container) {
-      container.style.display = "block";
+      container.style.display = "flex";
   } else {
       console.error('Slideshow container not found!');
   }

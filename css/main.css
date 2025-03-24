@@ -189,54 +189,65 @@ button.transparent-button {
 }
 
 @media (max-width: 768px) {
-  .mySlides {
-    display: none;
-    animation: fadeIn 1s ease-in forwards;
+  /* Slideshow container becomes a flex row */
+  #slideshow-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
   }
-  
-  /* Next & previous buttons */
+
+  /* Add height and adjust for arrows */
   #prev, #next {
+    background: transparent;
+    border: none;
     cursor: pointer;
-    position: absolute;
-    width: auto;
-    color: white;
+    color: #40E7D1; /* Match your theme color */
     font-weight: bold;
-    font-size: 18px;
+    font-size: 24px; /* Increase size for better visibility */
     transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
     user-select: none;
-    top: 11px;
+    line-height: 1;
+    padding: 10px; /* Add some padding for a larger touch target */
+    display: flex;
+    align-items: center;
+    height: 100%; /* Match the height of the container */
   }
   
-  /* Position the "next button" to the right */
-  #next {
-    right: 3%;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  #prev {
-    left: 3%;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  /* On hover, add a black background color with a little bit see-through */
-  #prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Caption text */
+  /* Make the slides container take proper space */
   #slides {
-    padding-top: 6px;
-    color: #f2f2f2;
-    font-size: 25px;
-    position: absolute;
-    width: fit-content;
-    text-align: center;
-    left: 50%;
-    transform: translate(-50%, 0);
+    display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1; /* Uncomment this to let it take available space */
   }
+  
+  /* Ensure mySlides are properly centered */
+  .mySlides {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.5rem;
+  }
+  
+  /* Ensure the text buttons are properly sized */
+  .mySlides button {
+    font-size: 1.5rem;
+    padding: 5px;
+  }
+
+  .mySlides.active-slide {
+    display: flex !important; /* Override any inline styles */
+  }
+
+  #prev:hover, #next:hover {
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 4px;
+  }
+
+  /* Caption text */
+  
   
   .active, .dot:hover {
     background-color: #717171;
