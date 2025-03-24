@@ -65,23 +65,31 @@ button.transparent-button {
     animation: fadeIn 2s ease-in forwards;
   }
 
-  #about-me {
+  #about-me, #work, #contacts {
     position: fixed;
-    top: 30vh;
-    left: 40vw;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfect centering */
     width: 30vw;
+    max-width: 600px;
+  }
+}
+
+@media (max-height: 600px) {
+  #main-text {
+    top: 2%;
+    right: 2%;
   }
 
-  #work {
-    position: fixed;
-    top: 35vh;
-    left: 40vw;
+  .centered-description {
+    top: 60%;
+    width: 90vw;
+    transform: translate(-50%, -50%);
   }
 
-  #contacts {
-    position: fixed;
-    top: 42vh;
-    left: 40vw;
+  #about-me, #work, #contacts {
+    top: 65%;
+    width: 50vw;
   }
 }
 
@@ -166,7 +174,7 @@ button.transparent-button {
     display: none;
   }
 
-  #work {
+  /* #work {
     position: absolute;
     top: 35vh;
     left: 40vw;
@@ -176,7 +184,7 @@ button.transparent-button {
     position: absolute;
     top: 42vh;
     left: 40vw;
-  }
+  } */
   
   #descriptions-container {
     animation: fadeIn 2s ease-in forwards;
