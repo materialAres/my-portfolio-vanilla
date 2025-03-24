@@ -83,78 +83,64 @@ function showSlides(n) {
 }
 /* Slide end */
 
-function goToDescription(descriptionNumber, event) {
-  // Prevent event bubbling
+function goToDescription(descriptionId, event) {
   event.stopPropagation();
-  
+
   if (window?.innerWidth <= 768) {
-    toggleDescriptionsMobile(descriptionNumber);
+    toggleDescriptionsMobile(descriptionId);
   } else {
-    toggleDescriptionsDesktop(descriptionNumber);
+    toggleDescriptionsDesktop(descriptionId);
   }
 }
 
-function toggleDescriptionsMobile(descriptionNumber) {
+function toggleDescriptionsMobile(descriptionId) {
   // Hide the slideshow container
   const container = document.getElementById('slideshow-container');
 
   if (container) {
-      container.style.display = "none";
+    container.style.display = "none";
   } else {
-      console.error('Slideshow container not found!');
+    console.error('Slideshow container not found!');
   }
 
-  if (descriptionNumber === 0) {
-    document.getElementById('about-me').style.display = "block";
-    document.getElementById('about-me').style.animation = "fadeIn 1.5s ease-in forwards";
-  } else if (descriptionNumber === 1) {
-    document.getElementById('work').style.display = "block";
-    document.getElementById('work').style.animation = "fadeIn 1.5s ease-in forwards";
-  } else if (descriptionNumber === 2) {
-    document.getElementById('contacts').style.display = "block";
-    document.getElementById('contacts').style.animation = "fadeIn 1.5s ease-in forwards";
-  } 
+  const el = document.getElementById(descriptionId);
+
+  if (el) {
+    el.style.display = "block";
+    el.style.animation = "fadeIn 1.5s ease-in forwards";
+  } else {
+    console.error(`Element with ID '${descriptionId}' not found!`);
+  }
 }
 
-function toggleDescriptionsDesktop(descriptionNumber) {
-  if (descriptionNumber === 0) {
-    document.getElementById('about-me').style.display = "block";
-    document.getElementById('about-me').style.animation = "fadeIn 1.5s ease-in forwards";
+function toggleDescriptionsDesktop(descriptionId) {
+  const elements = ['about-me', 'work', 'contacts'];
 
-    document.getElementById('work').style.display = "none";
-    document.getElementById('contacts').style.display = "none";
-  } else if (descriptionNumber === 1) {
-    document.getElementById('work').style.display = "block";
-    document.getElementById('work').style.animation = "fadeIn 1.5s ease-in forwards";
+  elements.forEach(e => {
+    const el = document.getElementById(e);
 
-    document.getElementById('about-me').style.display = "none";
-    document.getElementById('contacts').style.display = "none";
-  } else if (descriptionNumber === 2) {
-    document.getElementById('contacts').style.display = "block";
-    document.getElementById('contacts').style.animation = "fadeIn 1.5s ease-in forwards";
+    if (!el) return;
 
-    document.getElementById('work').style.display = "none";
-    document.getElementById('about-me').style.display = "none";
-  } 
+    if (e === descriptionId) {
+      el.style.display = "block";
+      el.style.animation = "fadeIn 1.5s ease-in forwards";
+    } else {
+      el.style.display = "none";
+    }
+  });
 }
 
-function goBack(descriptionNumber, event) {
+function goBack(descriptionId, event) {
   // Prevent event bubbling
   event.stopPropagation();
   
   // Hide the slideshow container
   const container = document.getElementById('slideshow-container');
   if (container) {
-      container.style.display = "flex";
+    container.style.display = "flex";
   } else {
-      console.error('Slideshow container not found!');
+    console.error('Slideshow container not found!');
   }
 
-  if (descriptionNumber === 0) {
-    document.getElementById('about-me').style.display = "none";
-  } else if (descriptionNumber === 1) {
-    document.getElementById('work').style.display = "none";
-  } else if (descriptionNumber === 2) {
-    document.getElementById('contacts').style.display = "none";
-  }
+  document.getElementById(descriptionId).style.display = "none";
 }

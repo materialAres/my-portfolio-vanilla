@@ -28,16 +28,16 @@
 		  
 			<!-- Slides in the middle -->
 			<div id="slides">
-			  <div class="mySlides">
-				<button class="text transparent-button" onclick="goToDescription(0, event)">About me</button>
-			  </div>
-			  <div class="mySlides">
-				<button class="text transparent-button" onclick="goToDescription(1, event)">Work</button>
-			  </div>
-			  <div class="mySlides">
-				<button class="text transparent-button" onclick="goToDescription(2, event)">Contacts</button>
-			  </div>
-			</div>
+				<div class="mySlides">
+					<button class="text transparent-button" onclick="goToDescription('about-me', event)">About me</button>
+				</div>
+				<div class="mySlides">
+					<button class="text transparent-button" onclick="goToDescription('work', event)">Work</button>
+				</div>
+				<div class="mySlides">
+					<button class="text transparent-button" onclick="goToDescription('contacts', event)">Contacts</button>
+				</div>
+			</div>  
 		  
 			<!-- Right arrow last -->
 			<button id="next" class="next transparent-button" onclick="plusSlides(1)">&#10095;</button>
@@ -50,7 +50,7 @@
 					Born in 1992, always passionate about computer and technology. I discovered programming quite recently, and decided to dive deep into this world.
 				</p>
 
-				<button class="back-button transparent-button" onclick="goBack(0, event)">
+				<button class="back-button transparent-button" onclick="goBack('about-me', event)">
 					<div class="circle-x"></div>
 				</button>
 			</div>
@@ -63,7 +63,7 @@
 					<p>2024/on going... <br> Front-end Developer <br> <span id="work-company">Ernst & Young</span></p>
 				</div>
 
-				<button class="back-button transparent-button" onclick="goBack(1, event)">
+				<button class="back-button transparent-button" onclick="goBack('work', event)">
 					<div class="circle-x"></div>
 				</button>
 			</div>
@@ -72,7 +72,7 @@
 				<p>Email: macs.ars@hotmail.com</p>
 				<p>Phone: +39 351 928 5434</p>
 				
-				<button class="back-button transparent-button" onclick="goBack(2, event)">
+				<button class="back-button transparent-button" onclick="goBack('contacts', event)">
 					<div class="circle-x"></div>
 				</button>
 			</div>

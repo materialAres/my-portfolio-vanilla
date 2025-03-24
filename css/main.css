@@ -22,8 +22,8 @@ body {
   box-sizing: border-box;
   position: relative;
   min-height: 100vh;
-  overflow-y: auto; /* ENABLE vertical scroll */
-  overflow-x: hidden; /* Optional: avoid horizontal scroll */
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* Reset button style to make it transparent */
