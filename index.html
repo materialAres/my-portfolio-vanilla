@@ -21,26 +21,28 @@
 			<h1 id="name">Massimiliano Aresu</h1>
 			<h3 id="job"><span>Web</span> <span>Developer</span></h3>
 		</div>
-
+		<!-- TODO: Add social media links -->
 		<div id="slideshow-container">
-			<div id="slides">
-				<div class="mySlides">
-					<button class="text transparent-button" onclick="goToDescription(0, event)">About me</button>
-				</div>
-				
-				<div class="mySlides">
-					<button class="text transparent-button" onclick="goToDescription(1, event)">Work</button>
-				</div>
-				
-				<div class="mySlides">
-					<button class="text transparent-button" onclick="goToDescription(2, event)">Contacts</button>
-				</div>
-			</div>
-			
-			<!-- Next and previous buttons -->
+			<!-- Left arrow first -->
 			<button id="prev" class="prev transparent-button" onclick="plusSlides(-1)">&#10094;</button>
+		  
+			<!-- Slides in the middle -->
+			<div id="slides">
+			  <div class="mySlides">
+				<button class="text transparent-button" onclick="goToDescription(0, event)">About me</button>
+			  </div>
+			  <div class="mySlides">
+				<button class="text transparent-button" onclick="goToDescription(1, event)">Work</button>
+			  </div>
+			  <div class="mySlides">
+				<button class="text transparent-button" onclick="goToDescription(2, event)">Contacts</button>
+			  </div>
+			</div>
+		  
+			<!-- Right arrow last -->
 			<button id="next" class="next transparent-button" onclick="plusSlides(1)">&#10095;</button>
 		</div>
+		  
 
 		<div id="descriptions-container">
 			<div id="about-me" class="info">

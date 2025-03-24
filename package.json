@@ -1,0 +1,10 @@
+{
+  "name": "massimiliano-aresu-portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "deploy": "surge ./ massimiliano-aresu.surge.sh"
+  },
+  "dependencies": {
+    "surge": "^0.24.6"
+  }
+}
