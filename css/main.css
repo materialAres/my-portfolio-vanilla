@@ -22,8 +22,14 @@ body {
   box-sizing: border-box;
   position: relative;
   min-height: 100vh;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
+}
+
+@media (max-height: 600px) {
+  html, body {
+    overflow-y: auto;
+  }
 }
 
 /* Reset button style to make it transparent */
