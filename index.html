@@ -68,24 +68,36 @@
 			</div>
 
 			<div id="contacts" class="info">
-				<p>Email: macs.ars@hotmail.com</p>
-				<p>Phone: +39 351 928 5434</p>
-				
-				<button class="back-button transparent-button" onclick="goBack('contacts', event)">
-					<div class="circle-x"></div>
-				</button>
-			</div>
+				<div class="grid-container">
+				  <div class="grid-item email">
+					<button class="copy-button" data-copy="macs.ars@hotmail.com" onclick="copyToClipboard(this)">
+						<img src="/assets/images/email.png" alt="Email icon">
+					</button>
+				  </div>
+				  <div class="grid-item phone">					
+					<button class="copy-button" data-copy="+393519285434" onclick="copyToClipboard(this)">
+						<img src="/assets/images/phone.png" alt="Phone icon">
+					</button>
+				  </div>
+				  <div class="grid-item center">
+					<button class="back-button transparent-button" onclick="goBack('contacts', event)">
+					  <div class="circle-x"></div>
+					</button>
+				  </div>
+				  <div class="grid-item github">
+					<a href="https://github.com/materialAres" target="_blank" rel="noopener noreferrer">
+						<img src="/assets/images/github-logo-squared.png" alt="Github icon">
+					</a>
+				  </div>
+				  <div class="grid-item linkedin">
+					<a href="https://www.linkedin.com/in/massimiliano-aresu" target="_blank" rel="noopener noreferrer">
+						<img src="/assets/images/linkedin-logo.png" alt="LinkedIn icon">
+					</a>
+				  </div>
+				</div>
+			</div> 
 		</div>
 	</div>
-
-	<div class="social-links">
-		<a href="https://github.com/materialAres" target="_blank" rel="noopener noreferrer">
-			<img src="/assets/images/github-logo.png" alt="GitHub Logo">
-		</a>
-		<a href="https://www.linkedin.com/in/massimiliano-aresu" target="_blank" rel="noopener noreferrer">
-			<img src="/assets/images/linkedin-logo.png" alt="LinkedIn Logo">
-		</a>
-	</div> 
 
 	<script src="/js/main.js"></script>
 	<script src="/js/animatedBackground.js"></script>
