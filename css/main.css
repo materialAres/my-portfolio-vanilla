@@ -501,6 +501,11 @@ button.transparent-button {
 }
 
 @media (max-height: 600px) {
+  .info {
+    min-height: 200px;
+    padding-bottom: 55px;
+  }
+
   #main-text {
     top: 2%;
     right: 2%;
@@ -515,6 +520,6 @@ button.transparent-button {
 
   #about-me, #work, #contacts {
     top: 75%;
-    width: 50vw;
+    width: 30vw;
   }
 }
